@@ -1,20 +1,12 @@
-// Only change code below this line
-
 let one = new Set([1, 2, 3, 4, 5]);
 let two = new Set([6, 4, 3, 2]);
 
-unionSet = new Set([...one, ...two]);
-intersectionSet = new Set(
-    [...one].filter(x => two.has(x)
-    ));
-differenceSet = new Set(
-    [...one].filter(x => !two.has(x)
-    ));
+const unionSet = new Set([...one].concat(...two));
+const intersectionSet = new Set([...one].filter((x) => [...two].includes(x)));
+const differenceSet = new Set([...one].filter((x) => ![...two].includes(x)));
 
 console.log(unionSet);
 console.log(intersectionSet);
 console.log(differenceSet);
-
-// Only change code above this line
 
 module.exports = { unionSet, intersectionSet, differenceSet };
